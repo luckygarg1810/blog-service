@@ -15,82 +15,81 @@ import jakarta.persistence.Table;
 @Entity
 public class User {
 
-	 @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-	    @Column(nullable = false)
-	    private String fullName;
-	    
-	    @Column(unique = true, nullable = false)
-	    private String username;
+	@Column(nullable = false)
+	private String fullName;
 
-	    @Column(nullable = false)
-	    private String password;
-	    
-	    @Column(nullable = false, unique = true)
-	    private String email;
-	    
-	    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
-	    private List<Blog> blogs;
-	    
-	    public User() {}
+	@Column(unique = true, nullable = false)
+	private String username;
 
-	    public User(String fullName ,String email,String username, String password) {
-	        this.username = username;
-	        this.password = password;
-	        this.email = email;
-	        this.fullName = fullName;
-	    }
+	@Column(nullable = false)
+	private String password;
 
-		public Long getId() {
-			return id;
-		}
+	@Column(nullable = false, unique = true)
+	private String email;
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	@OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Blog> blogs;
 
-		public String getUsername() {
-			return username;
-		}
+	public User() {
+	}
 
-		public void setUsername(String username) {
-			this.username = username;
-		}
+	public User(String fullName, String email, String username, String password) {
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.fullName = fullName;
+	}
 
-		public String getPassword() {
-			return password;
-		}
+	public Long getId() {
+		return id;
+	}
 
-		public void setPassword(String password) {
-			this.password = password;
-		}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-		public List<Blog> getBlogs() {
-			return blogs;
-		}
+	public String getUsername() {
+		return username;
+	}
 
-		public void setBlogs(List<Blog> blogs) {
-			this.blogs = blogs;
-		}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-		public String getEmail() {
-			return email;
-		}
+	public String getPassword() {
+		return password;
+	}
 
-		public void setEmail(String email) {
-			this.email = email;
-		}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-		public String getFullName() {
-			return fullName;
-		}
+	public List<Blog> getBlogs() {
+		return blogs;
+	}
 
-		public void setFullName(String fullName) {
-			this.fullName = fullName;
-		}
-	    
-	    
+	public void setBlogs(List<Blog> blogs) {
+		this.blogs = blogs;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 
 }

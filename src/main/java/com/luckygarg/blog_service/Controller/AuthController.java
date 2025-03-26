@@ -1,6 +1,5 @@
 package com.luckygarg.blog_service.Controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +18,6 @@ import com.luckygarg.blog_service.Service.AuthService;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-	@Autowired
 	private final AuthService authService;
 	   private final UserRepository userRepository;
 	  

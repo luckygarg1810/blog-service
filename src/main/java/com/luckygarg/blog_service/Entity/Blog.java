@@ -16,12 +16,12 @@ import jakarta.persistence.Table;
 @Table(name = "blogs")
 public class Blog implements Serializable {
 
-	  private static final long serialVersionUID = 1L;
-	  
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String title;
 
 	@Column(columnDefinition = "TEXT")
@@ -30,19 +30,18 @@ public class Blog implements Serializable {
 	private String author;
 
 	private LocalDateTime createdAt;
-	
+
 	private LocalDateTime lastUpdated;
-	
-	  @PrePersist
-	    protected void onCreate() {
-	        this.createdAt = LocalDateTime.now();
-	    }
 
-	    @PreUpdate
-	    protected void onUpdate() {
-	        this.lastUpdated = LocalDateTime.now();
-	    }
+	@PrePersist
+	protected void onCreate() {
+		this.createdAt = LocalDateTime.now();
+	}
 
+	@PreUpdate
+	protected void onUpdate() {
+		this.lastUpdated = LocalDateTime.now();
+	}
 
 	public Long getId() {
 		return id;
@@ -83,7 +82,7 @@ public class Blog implements Serializable {
 	public LocalDateTime getLastUpdated() {
 		return lastUpdated;
 	}
-	
+
 	public Blog(Long id, String title, String content, String author, LocalDateTime createdAt) {
 		super();
 		this.id = id;
@@ -92,9 +91,8 @@ public class Blog implements Serializable {
 		this.author = author;
 		this.createdAt = createdAt;
 	}
-	
+
 	public Blog() {
 	}
-
 
 }

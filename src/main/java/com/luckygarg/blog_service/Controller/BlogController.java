@@ -59,16 +59,16 @@ public class BlogController {
 		blogService.deleteBlog(id, request);
 		return ResponseEntity.ok("Blog Deleted Successfully");
 	}
-	
+
 	@GetMapping("/{id}/summary")
-	public ResponseEntity<Map<String, String>> summarizeBlog(@PathVariable Long id){
+	public ResponseEntity<Map<String, String>> summarizeBlog(@PathVariable Long id) {
 		Optional<Blog> blog = blogService.getBlogById(id);
-		
-		if(blog.isPresent()) {
+
+		if (blog.isPresent()) {
 			return ResponseEntity.ok(summarize.generateSummary(blog.get().getContent()));
-		}else {
-			  return ResponseEntity.badRequest().body(Map.of("error", "Blog not found."));
-        }
+		} else {
+			return ResponseEntity.badRequest().body(Map.of("error", "Blog not found."));
+		}
 	}
 
 }
