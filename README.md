@@ -21,6 +21,13 @@
 
 - ##### Deployment: Docker,  AWS Elastic Beanstalk
 
+## Blog Service Architecture
+
+#### This flowchart represents the architecture of the blog service.
+
+![Blog Service Architecture](https://github.com/luckygarg1810/blog-service/blob/master/Architecture.png)
+
+
 ## 🚀 Setup Instructions
 
 ### 1️⃣ Prerequisites
